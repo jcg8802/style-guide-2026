@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JC Style Guide — Spring/Summer 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --bg2: #161616;
+      --bg3: #1c1c1c;
+      --text: #f5f0e8;
+      --text-muted: #9e9a92;
+      --gold: #c9a96e;
+      --gold-light: #e2c898;
+      --gold-dark: #9e7c49;
+      --divider: #2a2a2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,169,110,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 20%, rgba(201,169,110,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      margin-bottom: 3rem;
+      max-width: 540px;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 3rem;
+      opacity: 0.6;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      display: block;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,15,15,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--divider);
+      padding: 0 2rem;
+      overflow-x: auto;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      white-space: nowrap;
+    }
+
+    .nav a {
+      display: inline-block;
+      padding: 1rem 1.1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 7rem 2rem;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--divider) 20%, var(--divider) 80%, transparent);
+      margin: 0 auto;
+    }
+
+    .trend-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .trend-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .trend-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .trend-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .trend-layout.three { grid-template-columns: 1fr 1fr 1fr; }
+
+    .trend-layout.reverse { direction: rtl; }
+    .trend-layout.reverse > * { direction: ltr; }
+
+    .trend-meta { display: flex; flex-direction: column; justify-content: center; }
+
+    .trend-images {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .trend-images.two-col { grid-template-columns: 1fr 1fr; }
+    .trend-images.stacked { grid-template-columns: 1fr; }
+
+    .img-wrap {
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--bg3);
+    }
+
+    .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+      filter: brightness(0.92) contrast(1.05);
+    }
+
+    .img-wrap:hover img { transform: scale(1.04); }
+
+    .img-tall { height: 420px; }
+    .img-short { height: 260px; }
+    .img-med { height: 320px; }
+    .img-wide { height: 380px; }
+
+    .brands-list {
+      margin-bottom: 1.8rem;
+    }
+
+    .brands-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .brands-label-colors { color: var(--text-muted); }
+
+    .brands-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .brand-tag {
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      background: var(--bg2);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .brand-tag:hover { border-color: var(--gold); color: var(--gold); }
+
+    .color-dot-row {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .color-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      flex-shrink: 0;
+    }
+
+    .color-names {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .the-move {
+      background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.03));
+      border-left: 2px solid var(--gold);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 4px 4px 0;
+      margin-top: 2rem;
+    }
+
+    .the-move-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .the-move p {
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--text);
+      font-family: 'Playfair Display', serif;
+      line-height: 1.6;
+    }
+
+    /* ── COLOR PALETTE ── */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .swatch-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .swatch {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .swatch-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .swatch-hex {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-family: 'Inter', monospace;
+      letter-spacing: 0.05em;
+    }
+
+    .palette-section-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold);
+      margin: 2.5rem 0 0.5rem;
+    }
+
+    /* ── SIZE CARD ── */
+    .size-card {
+      background: var(--bg2);
+      border: 1px solid var(--divider);
+      border-radius: 6px;
+      padding: 3rem;
+      max-width: 800px;
+      margin: 3rem auto 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .size-card::before {
+      content: 'JC';
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      font-weight: 700;
+      color: rgba(201,169,110,0.05);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .size-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .size-item {}
+
+    .size-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .size-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .size-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid var(--divider);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+
+    .footer strong { color: var(--gold); font-weight: 600; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .trend-layout { grid-template-columns: 1fr; }
+      .trend-layout.reverse { direction: ltr; }
+      .trend-images.two-col { grid-template-columns: 1fr 1fr; }
+      .img-tall { height: 280px; }
+      .img-wide { height: 260px; }
+      .size-card { padding: 2rem; }
+      .nav a { padding: 0.8rem 0.7rem; font-size: 0.6rem; }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 4rem 1.25rem; }
+      .trend-images.two-col { grid-template-columns: 1fr; }
+      .palette-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-label">Personal Edition · SS 2026</p>
+  <h1>JC Style Guide<br/><em>Spring / Summer 2026</em></h1>
+  <p class="hero-sub">Ten trends. One aesthetic. Dressed for the room before you walk in.</p>
+  <div class="hero-divider"></div>
+  <p style="font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted);">10 Trends &nbsp;·&nbsp; Color Palette &nbsp;·&nbsp; Your Sizes</p>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#t1">Soft Tailoring</a>
+    <a href="#t2">Linen Sets</a>
+    <a href="#t3">Trousers</a>
+    <a href="#t4">Knits</a>
+    <a href="#t5">Polos & Tees</a>
+    <a href="#t6">Loafers</a>
+    <a href="#t7">Sneakers</a>
+    <a href="#t8">Outerwear</a>
+    <a href="#t9">Shirting</a>
+    <a href="#t10">Color Story</a>
+    <a href="#palette">Palette</a>
+    <a href="#sizes">Sizes</a>
+  </div>
+</nav>
+
+<!-- TREND 1 — SOFT TAILORING -->
+<div id="t1">
+<div class="section">
+  <p class="trend-number">Trend 01</p>
+  <h2 class="trend-title">Soft Tailoring</h2>
+  <p class="trend-desc">Unstructured blazers in linen, cotton, and textured fabrics — worn open over a clean tee or fine knit. The Goldilocks silhouette: not boxy, not slim. Just right.</p>
+
+  <div class="trend-layout">
+    <div class="trend-images">
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/blazerlinen/800/600" alt="Soft tailoring blazer" loading="lazy" />
+      </div>
+      <div class="trend-images two-col" style="margin-top:0;">
+        <div class="img-wrap img-short">
+          <img src="https://picsum.photos/seed/tailoring2026/800/600" alt="Unstructured jacket" loading="lazy" />
+        </div>
+        <div class="img-wrap img-short">
+          <img src="https://picsum.photos/seed/stonelinen/800/600" alt="Linen blazer detail" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Zegna</span>
+          <span class="brand-tag">Brunello Cucinelli</span>
+          <span class="brand-tag">Drake's</span>
+          <span class="brand-tag">Loewe</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Palette</p>
+        <div class="color-dot-row">
+          <div class="color-dot" style="background:#E8DCC8;"></div>
+          <div class="color-dot" style="background:#C9B99A;"></div>
+          <div class="color-dot" style="background:#B5A88F;"></div>
+          <div class="color-dot" style="background:#F5F0E8;"></div>
+          <div class="color-dot" style="background:#8A9178;"></div>
+          <span class="color-names">Stone · Sand · Khaki · Ivory · Soft Olive</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"Pull a stone linen blazer over a white tee and navy straight-legs — leave it open, roll the sleeves twice. You look effortless. You look expensive."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 2 — LINEN SETS -->
+<div id="t2">
+<div class="section">
+  <p class="trend-number">Trend 02</p>
+  <h2 class="trend-title">Linen Sets &<br/><em>Resort Wear</em></h2>
+  <p class="trend-desc">Matching linen shirt + trouser in the same tone. Italian vacation dressing that doubles as investor dinner. The surest signal that you've figured it out.</p>
+
+  <div class="trend-layout reverse">
+    <div class="trend-images two-col">
+      <div class="img-wrap img-wide">
+        <img src="https://picsum.photos/seed/linenset/800/600" alt="Linen matching set" loading="lazy" />
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="img-wrap" style="height:180px;">
+          <img src="https://picsum.photos/seed/resortwear/800/600" alt="Resort wear" loading="lazy" />
+        </div>
+        <div class="img-wrap" style="height:180px;">
+          <img src="https://picsum.photos/seed/ecrutrousers/800/600" alt="Ecru linen" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Loro Piana</span>
+          <span class="brand-tag">Jacquemus</span>
+          <span class="brand-tag">Massimo Alba</span>
+          <span class="brand-tag">Corridor</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Footwear</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Leather Sandals</span>
+          <span class="brand-tag">Minimalist Loafers</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Palette</p>
+        <div class="color-dot-row">
+          <div class="color-dot" style="background:#F5EDD8;"></div>
+          <div class="color-dot" style="background:#C4886A;"></div>
+          <div class="color-dot" style="background:#8B9E82;"></div>
+          <div class="color-dot" style="background:#F5F0E8;"></div>
+          <div class="color-dot" style="background:#C4724A;"></div>
+          <span class="color-names">Ecru · Clay · Sage · Warm White · Terracotta</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"Buy the set. Wear the set. Add leather sandals. Don't overthink it — coordinated dressing this clean is the whole point."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 3 — STRAIGHT-LEG TROUSERS -->
+<div id="t3">
+<div class="section">
+  <p class="trend-number">Trend 03</p>
+  <h2 class="trend-title">Straight-Leg<br/><em>Trousers</em></h2>
+  <p class="trend-desc">The pendulum swings back from baggy — settling at clean, straight, and intentional. Single-pleat options coming in strong: relaxed through the thigh, clean at the break.</p>
+
+  <div class="trend-layout">
+    <div class="trend-images two-col">
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/straightleg/800/600" alt="Straight leg trousers" loading="lazy" />
+      </div>
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/pleatedtrousers/800/600" alt="Pleated trousers" loading="lazy" />
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Incotex</span>
+          <span class="brand-tag">Brioni</span>
+          <span class="brand-tag">Ring Jacket</span>
+          <span class="brand-tag">De Bonne Facture</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Fabrics</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Linen</span>
+          <span class="brand-tag">Cotton Twill</span>
+          <span class="brand-tag">Light Wool</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Palette</p>
+        <div class="color-dot-row">
+          <div class="color-dot" style="background:#1B3A6B;"></div>
+          <div class="color-dot" style="background:#C4A882;"></div>
+          <div class="color-dot" style="background:#6B7C5A;"></div>
+          <div class="color-dot" style="background:#F5F0E8;"></div>
+          <div class="color-dot" style="background:#8A8A8A;"></div>
+          <span class="color-names">Navy · Tan · Olive · Ivory · Mid-Grey</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"Single-pleat linen trousers in navy or tan — with a relaxed tuck at the front. Pair with loafers, no socks. You're not trying, and everyone knows you tried."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 4 — ELEVATED KNITS -->
+<div id="t4">
+<div class="section">
+  <p class="trend-number">Trend 04</p>
+  <h2 class="trend-title">Elevated<br/><em>Knits</em></h2>
+  <p class="trend-desc">Fine-gauge cashmere and merino crewnecks and half-zips replacing the dress shirt for smart-casual. The most sophisticated upgrade you can make to any outfit.</p>
+
+  <div class="trend-layout reverse">
+    <div class="trend-images">
+      <div class="img-wrap img-wide">
+        <img src="https://picsum.photos/seed/cashmereknit/800/600" alt="Cashmere knitwear" loading="lazy" />
+      </div>
+      <div class="trend-images two-col" style="margin-top:1rem;">
+        <div class="img-wrap img-short">
+          <img src="https://picsum.photos/seed/halfzip/800/600" alt="Half-zip knit" loading="lazy" />
+        </div>
+        <div class="img-wrap img-short">
+          <img src="https://picsum.photos/seed/finegauge/800/600" alt="Fine gauge knitwear" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Brunello Cucinelli</span>
+          <span class="brand-tag">Loro Piana</span>
+          <span class="brand-tag">John Smedley</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Palette</p>
+        <div class="color-dot-row">
+          <div class="color-dot" style="background:#C19A6B;"></div>
+          <div class="color-dot" style="background:#1B3A6B;"></div>
+          <div class="color-dot" style="background:#F5F0E8;"></div>
+          <div class="color-dot" style="background:#8A8A8A;"></div>
+          <span class="color-names">Camel · Navy · Off-White · Mid-Grey</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"Camel cashmere crewneck over a white tee, tucked lightly into straight navy trousers. Add loafers. You've just outperformed everyone in a boardroom without wearing a tie."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 5 — QUIET LUXURY POLOS & TEES -->
+<div id="t5">
+<div class="section">
+  <p class="trend-number">Trend 05</p>
+  <h2 class="trend-title">Quiet Luxury<br/><em>Polos & Tees</em></h2>
+  <p class="trend-desc">Premium Pima cotton and mercerized cotton in clean, logo-free cuts. The foundation of every great outfit this season. Get the fit right and it says everything.</p>
+
+  <div class="trend-layout">
+    <div class="trend-images two-col">
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/quietluxury/800/600" alt="Quiet luxury polo" loading="lazy" />
+      </div>
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/premiumtee/800/600" alt="Premium tee" loading="lazy" />
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Zegna</span>
+          <span class="brand-tag">Kiton</span>
+          <span class="brand-tag">Fedeli</span>
+          <span class="brand-tag">Sunspel</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Palette</p>
+        <div class="color-dot-row">
+          <div class="color-dot" style="background:#FFFFFF;"></div>
+          <div class="color-dot" style="background:#F5EDD8;"></div>
+          <div class="color-dot" style="background:#A8C0CC;"></div>
+          <div class="color-dot" style="background:#8B9E82;"></div>
+          <div class="color-dot" style="background:#1A1A1A;"></div>
+          <span class="color-names">White · Ecru · Pale Blue · Sage · Black</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"White Sunspel tee under the linen blazer. Tucked. Crease-free. It's not boring — it's the whole look."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 6 — THE LOAFER TAKEOVER -->
+<div id="t6">
+<div class="section">
+  <p class="trend-number">Trend 06</p>
+  <h2 class="trend-title">The Loafer<br/><em>Takeover</em></h2>
+  <p class="trend-desc">Penny loafers and horsebit loafers are dominating smart-casual. Suede for day, polished leather for evening. With or without socks — both valid, both intentional.</p>
+
+  <div class="trend-layout reverse">
+    <div class="trend-images">
+      <div class="img-wrap img-wide">
+        <img src="https://picsum.photos/seed/horsebitloafer/800/600" alt="Horsebit loafer" loading="lazy" />
+      </div>
+      <div class="trend-images two-col" style="margin-top:1rem;">
+        <div class="img-wrap img-short">
+          <img src="https://picsum.photos/seed/suedeloafer/800/600" alt="Suede loafer" loading="lazy" />
+        </div>
+        <div class="img-wrap img-short">
+          <img src="https://picsum.photos/seed/pennyloafer/800/600" alt="Penny loafer" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Gucci</span>
+          <span class="brand-tag">Tod's</span>
+          <span class="brand-tag">Baudoin & Lange</span>
+          <span class="brand-tag">Paraboot</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Palette</p>
+        <div class="color-dot-row">
+          <div class="color-dot" style="background:#C4A882;"></div>
+          <div class="color-dot" style="background:#4A3728;"></div>
+          <div class="color-dot" style="background:#9E6B3A;"></div>
+          <div class="color-dot" style="background:#1A1A1A;"></div>
+          <span class="color-names">Tan Suede · Dark Brown · Cognac · Black</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"Tan suede Baudoin & Lange slipper loafers with cropped linen trousers, no socks. It's the shoe that makes strangers ask where you shop."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 7 — MINIMALIST LEATHER SNEAKERS -->
+<div id="t7">
+<div class="section">
+  <p class="trend-number">Trend 07</p>
+  <h2 class="trend-title">Minimalist<br/><em>Leather Sneakers</em></h2>
+  <p class="trend-desc">Clean white or off-white leather court sneakers — premium alternatives to the logo-heavy mainstream. The move when loafers feel too formal, dress shoes feel too much.</p>
+
+  <div class="trend-layout">
+    <div class="trend-images two-col">
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/commonprojects/800/600" alt="Minimalist sneakers" loading="lazy" />
+      </div>
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/whitesneaker/800/600" alt="White leather sneaker" loading="lazy" />
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Common Projects</span>
+          <span class="brand-tag">Axel Arigato</span>
+          <span class="brand-tag">New Balance 550</span>
+          <span class="brand-tag">Veja</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Styling</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Tailored Trousers</span>
+          <span class="brand-tag">Linen Sets</span>
+          <span class="brand-tag">Shorts</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"Common Projects Achilles in white with straight-leg khaki trousers and a linen shirt. The sneaker that signals you're past logo culture."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 8 — TECHNICAL OUTERWEAR -->
+<div id="t8">
+<div class="section">
+  <p class="trend-number">Trend 08</p>
+  <h2 class="trend-title">Technical<br/><em>Outerwear</em></h2>
+  <p class="trend-desc">Nylon and technical field jackets worn over tailored pieces. Lightweight, packable, weather-ready — functionality that doesn't apologize for looking this good.</p>
+
+  <div class="trend-layout reverse">
+    <div class="trend-images two-col">
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/technicalouterwear/800/600" alt="Technical outerwear" loading="lazy" />
+      </div>
+      <div class="img-wrap img-tall">
+        <img src="https://picsum.photos/seed/fieldjacket/800/600" alt="Field jacket" loading="lazy" />
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Zegna (Technical)</span>
+          <span class="brand-tag">C.P. Company</span>
+          <span class="brand-tag">Veilance</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Palette</p>
+        <div class="color-dot-row">
+          <div class="color-dot" style="background:#1B3A6B;"></div>
+          <div class="color-dot" style="background:#1A1A1A;"></div>
+          <div class="color-dot" style="background:#C9B99A;"></div>
+          <div class="color-dot" style="background:#6B7C5A;"></div>
+          <span class="color-names">Navy · Black · Stone · Olive</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"Stone Veilance field jacket over a cashmere crewneck and tailored trousers. It says: I can go from a board meeting to the airport in ten minutes."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 9 — SUMMER SHIRTING -->
+<div id="t9">
+<div class="section">
+  <p class="trend-number">Trend 09</p>
+  <h2 class="trend-title">Summer<br/><em>Shirting</em></h2>
+  <p class="trend-desc">Open-collar linen and gauze shirts with clean construction. Camp collar or classic — both are right. Worn untucked or half-tucked, never fully buttoned, always intentional.</p>
+
+  <div class="trend-layout">
+    <div class="trend-images">
+      <div class="img-wrap img-wide">
+        <img src="https://picsum.photos/seed/linenshirt/800/600" alt="Linen summer shirt" loading="lazy" />
+      </div>
+      <div class="trend-images two-col" style="margin-top:1rem;">
+        <div class="img-wrap img-short">
+          <img src="https://picsum.photos/seed/campcollar/800/600" alt="Camp collar shirt" loading="lazy" />
+        </div>
+        <div class="img-wrap img-short">
+          <img src="https://picsum.photos/seed/gauzeShirt/800/600" alt="Gauze shirt" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <div class="trend-meta">
+      <div class="brands-list">
+        <p class="brands-label">Key Brands</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Gitman Vintage</span>
+          <span class="brand-tag">Drake's</span>
+          <span class="brand-tag">Inis Meáin</span>
+          <span class="brand-tag">Corridor</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Palette</p>
+        <div class="color-dot-row">
+          <div class="color-dot" style="background:#FFFFFF;"></div>
+          <div class="color-dot" style="background:#A8C0CC;"></div>
+          <div class="color-dot" style="background:#E8E0D5;"></div>
+          <span class="color-names">White · Pale Blue · Thin Stripe · Subtle Check</span>
+        </div>
+      </div>
+      <div class="the-move">
+        <p class="the-move-label">The Move</p>
+        <p>"Drake's linen shirt in white or pale blue, one button open at the neck, sleeves rolled to the elbow. Half-tuck if you're wearing trousers. This is the shirt that does 70% of the work."</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TREND 10 — COLOR STORY -->
+<div id="t10">
+<div class="section">
+  <p class="trend-number">Trend 10</p>
+  <h2 class="trend-title">The Color<br/><em>Story 2026</em></h2>
+  <p class="trend-desc">The palette of the season — built for effortless coordination. Foundation neutrals carry the look. Depth tones anchor. Accents finish. Primaries stay home.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem;">
+    <div>
+      <div class="brands-list">
+        <p class="brands-label">Foundation</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Ivory</span>
+          <span class="brand-tag">Stone</span>
+          <span class="brand-tag">Sand</span>
+          <span class="brand-tag">Warm White</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Depth</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Navy</span>
+          <span class="brand-tag">Olive</span>
+          <span class="brand-tag">Cognac</span>
+          <span class="brand-tag">Terracotta</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label brands-label-colors">Accent (Sparingly)</p>
+        <div class="brands-tags">
+          <span class="brand-tag">Sage Green</span>
+          <span class="brand-tag">Dusty Rose</span>
+        </div>
+      </div>
+      <div class="brands-list">
+        <p class="brands-label" style="color:#666;">Avoid</p>
+        <div class="brands-tags">
+          <span class="brand-tag" style="opacity:0.4;">Bright Primaries</span>
+          <span class="brand-tag" style="opacity:0.4;">Heavy Black-on-Black</span>
+        </div>
+      </div>
+    </div>
+    <div class="trend-images">
+      <div class="img-wrap img-wide">
+        <img src="https://picsum.photos/seed/colorpalette2026/800/600" alt="2026 color story" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- COLOR PALETTE -->
+<div id="palette">
+<div class="section">
+  <p class="trend-number">Reference</p>
+  <h2 class="trend-title">Color Palette</h2>
+  <p class="trend-desc">The exact colors that define a strong SS26 wardrobe. Build outfits within these columns. Mix foundation + depth. Add accents last.</p>
+
+  <p class="palette-section-label">Foundation Neutrals</p>
+  <div class="palette-grid">
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#F5F0E8;"></div>
+      <div class="swatch-name">Ivory</div>
+      <div class="swatch-hex">#F5F0E8</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#E8DCC8;"></div>
+      <div class="swatch-name">Stone</div>
+      <div class="swatch-hex">#E8DCC8</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#D4C4A0;"></div>
+      <div class="swatch-name">Sand</div>
+      <div class="swatch-hex">#D4C4A0</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#FAF6EF;"></div>
+      <div class="swatch-name">Warm White</div>
+      <div class="swatch-hex">#FAF6EF</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#C9B99A;"></div>
+      <div class="swatch-name">Khaki</div>
+      <div class="swatch-hex">#C9B99A</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#F5EDD8;"></div>
+      <div class="swatch-name">Ecru</div>
+      <div class="swatch-hex">#F5EDD8</div>
+    </div>
+  </div>
+
+  <p class="palette-section-label">Depth Tones</p>
+  <div class="palette-grid">
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#1B3A6B;"></div>
+      <div class="swatch-name">Navy</div>
+      <div class="swatch-hex">#1B3A6B</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#6B7C5A;"></div>
+      <div class="swatch-name">Olive</div>
+      <div class="swatch-hex">#6B7C5A</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#9E6B3A;"></div>
+      <div class="swatch-name">Cognac</div>
+      <div class="swatch-hex">#9E6B3A</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#C4724A;"></div>
+      <div class="swatch-name">Terracotta</div>
+      <div class="swatch-hex">#C4724A</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#C19A6B;"></div>
+      <div class="swatch-name">Camel</div>
+      <div class="swatch-hex">#C19A6B</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#C4886A;"></div>
+      <div class="swatch-name">Clay</div>
+      <div class="swatch-hex">#C4886A</div>
+    </div>
+  </div>
+
+  <p class="palette-section-label">Accent Colors</p>
+  <div class="palette-grid">
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#8B9E82;"></div>
+      <div class="swatch-name">Sage Green</div>
+      <div class="swatch-hex">#8B9E82</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#D4A5A5;"></div>
+      <div class="swatch-name">Dusty Rose</div>
+      <div class="swatch-hex">#D4A5A5</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#A8C0CC;"></div>
+      <div class="swatch-name">Pale Blue</div>
+      <div class="swatch-hex">#A8C0CC</div>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch" style="background:#8A8A8A;"></div>
+      <div class="swatch-name">Mid-Grey</div>
+      <div class="swatch-hex">#8A8A8A</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- SIZE QUICK-REFERENCE -->
+<div id="sizes">
+<div class="section">
+  <p class="trend-number">Personal Reference</p>
+  <h2 class="trend-title">Size Guide</h2>
+  <p class="trend-desc">JC's exact measurements — the numbers to reference when shopping online or calling ahead.</p>
+
+  <div class="size-card">
+    <div class="size-grid">
+      <div class="size-item">
+        <p class="size-label">Waist</p>
+        <p class="size-value">34"</p>
+        <p class="size-sub">86 cm</p>
+      </div>
+      <div class="size-item">
+        <p class="size-label">Inseam</p>
+        <p class="size-value">30–32"</p>
+        <p class="size-sub">76–81 cm</p>
+      </div>
+      <div class="size-item">
+        <p class="size-label">Top / Jacket</p>
+        <p class="size-value">L</p>
+        <p class="size-sub">EU 52 / IT 52</p>
+      </div>
+      <div class="size-item">
+        <p class="size-label">Shoes</p>
+        <p class="size-value">US 10</p>
+        <p class="size-sub">EU 43 / UK 9</p>
+      </div>
+      <div class="size-item">
+        <p class="size-label">Shirt Collar</p>
+        <p class="size-value">15.5"</p>
+        <p class="size-sub">39–40 cm</p>
+      </div>
+      <div class="size-item">
+        <p class="size-label">Suit Size</p>
+        <p class="size-value">40L</p>
+        <p class="size-sub">IT 50 / EU 50</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:800px;margin:2rem auto 0;padding:1.5rem 2rem;background:var(--bg2);border:1px solid var(--divider);border-radius:6px;">
+    <p style="font-size:0.72rem;letter-spacing:0.08em;color:var(--text-muted);line-height:1.9;">
+      <strong style="color:var(--gold);">Trouser note:</strong> Most Italian brands run long — request 30" inseam or plan for one alteration. &nbsp;·&nbsp;
+      <strong style="color:var(--gold);">Jacket note:</strong> L works off-the-rack; some Italian cuts run slim in the chest — size up when in doubt. &nbsp;·&nbsp;
+      <strong style="color:var(--gold);">Shoe note:</strong> Common Projects and Baudoin & Lange run true to size. Tod's can run slightly large — try before buying.
+    </p>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p style="margin-bottom:0.5rem;">
+    <strong>JC Style Guide</strong> &nbsp;·&nbsp; Spring / Summer 2026 &nbsp;·&nbsp; Personal Edition
+  </p>
+  <p style="color:var(--divider);font-size:0.65rem;margin-top:0.5rem;">Built by JClaw &nbsp;🦊&nbsp; · &nbsp;jcg8802.github.io/style-guide-2026</p>
+</footer>
+
+</body>
+</html>
